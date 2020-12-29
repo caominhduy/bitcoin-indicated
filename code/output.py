@@ -81,13 +81,13 @@ def process_ichimoku(inputs, max_score):
     return kijun_trend*max_score + chikou_trend*max_score + len(support)*0.5*max_score + len(resistance)*-0.5*max_score
 
 def process_score(score):
-    if score >= -1 and score < -0.7:
+    if score >= -100 and score < -70:
         return 'You DEFINITELY should BUY'
-    if score >= -0.7 and score < -0.4:
+    if score >= -70 and score < -40:
         return 'You MAYBE should BUY'
-    if score >= -0.4 and score < 0.4:
+    if score >= -40 and score < 40:
         return 'You DEFINITELY should HOLD'
-    if score >= 0.4 and score < 0.7:
+    if score >= 40 and score < 70:
         return 'You MAYBE should SELL'
     else:
         return 'You DEFINITELY should SELL'
@@ -98,6 +98,7 @@ def web(score, date):
     past_score = data['past_score'].iloc[0]
     data['current_score'] = score
     data['date'] = date
+    data['quote'] = process_score(score)
     data.to_csv('docs/assets/data/score.csv', index=False)
 
 def indicator(option):
