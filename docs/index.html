@@ -82,15 +82,15 @@
 										<header class="major">
 											<h2>Tl;dr</h2>
 										</header>
-										<p>Are you new to cryptocurrency trading and overwhelmed by the complexity of technical analysis?
-										Look no more, at bitcoinindicated.com, we combine all famous technical analysis into one metric and save you some time!
-										Of course, you can still click on Learn More to see individual indicators that we use.</p>
-										<p>As of <b id="latest date"></b>:
-											<ul>
-												<li id="indicated"></li>
-												<li>Score is <b id="certainty"></b></li>
-											</ul>
-										</p>
+										<p>Single indicator occasionally gives trustworthy signals.
+											Reading many indicators at the same time, however, maybe overwhelming.
+										Understanding this, at bitcoinindicated.com, we combine all famous technical analyses into one metric and save you some time!
+										Of course, you can still click on Individual Analyses to see single indicators that we use.</p>
+										<p>As of <b id="latest date"></b>:</p>
+										<ul>
+											<li id="indicated"></li>
+											<li>Score is <b id="certainty"></b></li>
+										</ul>
 										<script>
 										getData()
 										</script>
@@ -99,7 +99,7 @@
 										</ul>
 									</div>
 									<span>
-										<div id="gauge" style="width:400px;height:250px;"></div>
+										<div id="gauge" style="width:370px;height:250px;"></div>
 									</span>
 									<script>
 									plot()
@@ -112,6 +112,8 @@
 								<header class="major">
 									<h2>Technical Analyses</h2>
 								</header>
+								<p>Graphs are updated daily. For the first three indicators,
+								there are pair graphs representating our two data sources: CoinDesk and Nomics.</p>
 								<div class="row">
 								 <div class="column">
 									 <img src="images/bollinger-coindesk.svg" alt="Snow" style="width:100%">
@@ -145,7 +147,7 @@
 									<p>See more at</p>
 									<ul class="actions special">
 										<li><a href="https://www.tradingview.com/" class="button" target=”_blank”>TradingView</a></li>
-										<li><a href="https://www.coindesk.com/price/bitcoin" class="button" target=”_blank”>Coindesk</a></li>
+										<li><a href="https://www.coindesk.com/price/bitcoin" class="button" target=”_blank”>CoinDesk</a></li>
 										<li><a href="https://nomics.com/" class="button" target=”_blank”>Nomics</a></li>
 									</ul>
 								</footer>
@@ -158,27 +160,33 @@
 									<p>We combine Moving Average Convergence Divergence (MACD),
 									Bollinger Band, Ichimoku Kinko Hyo (Ichimoku Cloud),
 									Relative Strength Index (RSI) indicators into scale of -100 (most likely signal for buying) to
-									100 (most likely signal for selling). The detail for this scale can be seen below.</p>
-
-
+									100 (most likely signal for selling).</p>
 								<div class="table">
 							    <table cellpadding="0" cellspacing="0" border="0">
 							      <tbody>
 											<tr>
 												<th style="text-align:center">Score Range</th>
-												<th style="text-align:center">-100 to -70</th>
-												<th style="text-align:center">-70 to -40</th>
-												<th style="text-align:center">-40 to 40</th>
-												<th style="text-align:center">40 to 70</th>
-												<th style="text-align:center">70 to 100</th>
+												<th style="text-align:center">Label</th>
 											</tr>
 							        <tr>
-												<th style="text-align:center">Label</th>
-												<td>Definitely should buy</td>
-												<td>Maybe should buy</td>
-												<td>Hold</td>
-												<td>Maybe should sell</td>
-												<td>Definitely should sell</td>
+												<td>-100 to -70</td>
+												<td>DEFINITELY should BUY</td>
+							        </tr>
+											<tr>
+												<td>-70 to -40</td>
+												<td>MAYBE should BUY</td>
+							        </tr>
+											<tr>
+												<td>-40 to 40</td>
+												<td>MAYBE should HOLD</td>
+							        </tr>
+											<tr>
+												<td>40 to 70</td>
+												<td>MAYBE should SELL</td>
+							        </tr>
+											<tr>
+												<td>70 to 100</td>
+												<td>DEFINITELY should SELL</td>
 							        </tr>
 									</tbody>
 									</table>
@@ -191,9 +199,9 @@
 							<section id="cta" class="main special">
 								<header class="major">
 									<h2>Learn More</h2>
-									<p>For more detail about source code, README, please visit our repository.
-									Also check out Pandemic Central for COVID-19 projections, utilizing machine learning
-									on mobility, epidemiology, and sociology data!(●'◡'●)</p>
+									<p>To learn more about this indicator, please visit our repository and let README guide your way.
+									Also check out Pandemic Central for COVID-19 projections by using machine learning on
+									mobility, epidemiology, and sociology data! (●'◡'●) </p>
 								</header>
 								<footer class="major">
 									<ul class="actions special">
