@@ -60,8 +60,8 @@ def macd(df, columns):
         plt.legend()
         plt.suptitle(f'MACD', fontsize=16)
         plt.title(f'Data source: {c}', fontsize=10)
-        plt.savefig(f'pages/images/macd-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
-        plt.savefig(f'pages/images/macd-{c}.svg')
+        plt.savefig(f'docs/images/macd-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
+        plt.savefig(f'docs/images/macd-{c}.svg')
         plt.show()
 
     if macd[len(macd)-1] > 0:
@@ -113,8 +113,8 @@ def rsi(df, columns, n): # n is period
         plt.legend()
         plt.suptitle(f'RSI', fontsize=16)
         plt.title(f'Data source: {c}', fontsize=10)
-        plt.savefig(f'pages/images/rsi-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
-        plt.savefig(f'pages/images/rsi-{c}.svg')
+        plt.savefig(f'docs/images/rsi-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
+        plt.savefig(f'docs/images/rsi-{c}.svg')
         plt.show()
 
         if 'rsi' not in df.columns.values.tolist():
@@ -163,8 +163,8 @@ def bollinger_band(df, columns, n, mul):
         plt.legend()
         plt.suptitle(f'Bollinger Band', fontsize=16)
         plt.title(f'Data source: {c}', fontsize=10)
-        plt.savefig(f'pages/images/bollinger-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
-        plt.savefig(f'pages/images/bollinger-{c}.svg')
+        plt.savefig(f'docs/images/bollinger-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
+        plt.savefig(f'docs/images/bollinger-{c}.svg')
         plt.show()
 
         if 'upper' not in df.columns.values.tolist() and 'lower' not in df.columns.values.tolist():
@@ -249,8 +249,8 @@ def ichimoku_cloud(df, columns, n_1, n_2, n_3, n_4):
     plt.legend()
     plt.suptitle(f'Ichimoku Cloud', fontsize=16)
     plt.title(f'Data source: {columns}', fontsize=10)
-    plt.savefig(f'pages/images/ichimoku.jpg', dpi=300, pil_kwargs={'quality': 95})
-    plt.savefig(f'pages/images/ichimoku.svg')
+    plt.savefig(f'docs/images/ichimoku.jpg', dpi=300, pil_kwargs={'quality': 95})
+    plt.savefig(f'docs/images/ichimoku.svg')
     plt.show()
 
     support = []

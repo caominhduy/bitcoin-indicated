@@ -93,12 +93,12 @@ def process_score(score):
         return 'You DEFINITELY should SELL'
 
 def web(score, date):
-    data = pd.read_csv('pages/assets/data/score.csv')
+    data = pd.read_csv('docs/assets/data/score.csv')
     data['past_score'] = data['current_score']
     past_score = data['past_score'].iloc[0]
     data['current_score'] = score
     data['date'] = date
-    data.to_csv('pages/assets/data/score.csv', index=False)
+    data.to_csv('docs/assets/data/score.csv', index=False)
 
 def indicator(option):
     score = 0
@@ -114,8 +114,8 @@ def indicator(option):
         output = indicators.ichimoku_cloud(data, ['coindesk', 'nomics'], 9, 26, 52, 26)
         score += process_ichimoku(output, max_score)
         score = round(score*100, 1)
-        if not os.path.exists('pages/assets/data/score.csv'):
-            pd.DataFrame({'date': [data['date'].iloc[-1]], 'current_score': [score], 'past_score': [score], 'quote': [process_score(score)]}).to_csv('pages/assets/data/score.csv', index=False)
+        if not os.path.exists('docs/assets/data/score.csv'):
+            pd.DataFrame({'date': [data['date'].iloc[-1]], 'current_score': [score], 'past_score': [score], 'quote': [process_score(score)]}).to_csv('docs/assets/data/score.csv', index=False)
         print(score, data['date'].iloc[-1])
         web(score, data['date'].iloc[-1])
 
@@ -126,7 +126,7 @@ def indicator(option):
         uptrend, crossover = indicators.macd(data, ['coindesk', 'nomics'])
         score += process_macd(uptrend, crossover, max_score)
         score = round(score*100, 1)
-        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('pages/assets/data/score.csv', index=False)
+        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('docs/assets/data/score.csv', index=False)
         print(score)
 
     if option == 'rsi':
@@ -135,7 +135,7 @@ def indicator(option):
         overbought, rsi = indicators.rsi(data, ['coindesk', 'nomics'], 14)
         score += process_rsi(overbought, rsi, max_score)
         score = round(score*100, 1)
-        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('pages/assets/data/score.csv', index=False)
+        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('docs/assets/data/score.csv', index=False)
         print(score)
 
     if option == 'bollinger':
@@ -144,7 +144,7 @@ def indicator(option):
         bounce, squeeze = indicators.bollinger_band(data, ['coindesk', 'nomics'], 20, 2)
         score += process_bollinger(bounce, squeeze, max_score)
         score = round(score*100, 1)
-        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('pages/assets/data/score.csv', index=False)
+        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('docs/assets/data/score.csv', index=False)
         print(score)
 
     if option == 'ichimoku':
@@ -153,5 +153,5 @@ def indicator(option):
         output = indicators.ichimoku_cloud(data, ['coindesk', 'nomics'], 9, 26, 52, 26)
         score += process_ichimoku(output, max_score)
         score = round(score*100, 1)
-        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('pages/assets/data/score.csv', index=False)
+        pd.DataFrame({'date': [data['date'].iloc[-1]], 'score': [score], 'quote': [process_score(score)]}).to_csv('docs/assets/data/score.csv', index=False)
         print(score)
