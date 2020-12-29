@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar Template by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Bitcoin Indicated</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="assets/js/bitcoin.js"></script>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<link rel="apple-touch-icon" sizes="57x57" href="./apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="./apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="./apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="./apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="./apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="./apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="./apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="./apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="./apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="./android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+		<link rel="manifest" href="./manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="./ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+		<style>
+		.tbl-header{
+		  background-color: rgba(255,255,255,0.3);
+		 }
+		 .graph {
+	    max-height: auto;
+	    max-width: 65vh;
+		}
+		.row {
+		  display: flex;
+		}
+
+		.column {
+		  flex: 45%;
+		  padding: 5px;
+		}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/bitcoin-indicated-white-logo.png" alt="" /></span>
+						<h1></h1>
+						<p>A simple, human-friendly, all-in-one indicator for Bitcoin trading<br />
+						built by <a href="https://github.com/caominhduy">@caominhduy</a></p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Ours</a></li>
+							<li><a href="#first">Technical Analyses</a></li>
+							<li><a href="#score">Score Table</a></li>
+							<li><a href="#cta">Source Code</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Tl;dr</h2>
+										</header>
+										<p>Are you new to cryptocurrency trading and overwhelmed by the complexity of technical analysis?
+										Look no more, at bitcoinindicated.com, we combine all famous technical analysis into one metric and save you some time!
+										Of course, you can still click on Learn More to see individual indicators that we use.</p>
+										<p>As of <b id="latest date"></b>:
+											<ul>
+												<li id="indicated"></li>
+												<li>Score is <b id="certainty"></b></li>
+											</ul>
+										</p>
+										<script>
+										getData()
+										</script>
+										<ul class="actions">
+											<li><a href="#score" class="button">Learn More about Score</a></li>
+										</ul>
+									</div>
+									<span>
+										<div id="gauge" style="width:400px;height:250px;"></div>
+									</span>
+									<script>
+									plot()
+								</script>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Technical Analyses</h2>
+								</header>
+								<div class="row">
+								 <div class="column">
+									 <img src="images/bollinger-coindesk.svg" alt="Snow" style="width:100%">
+								 </div>
+								 <div class="column">
+									 <img src="images/bollinger-nomics.svg" alt="Forest" style="width:100%">
+								 </div>
+							 </div>
+							 <div class="row">
+								<div class="column">
+									<img src="images/macd-coindesk.svg" alt="Snow" style="width:100%">
+								</div>
+								<div class="column">
+									<img src="images/macd-nomics.svg" alt="Forest" style="width:100%">
+								</div>
+							</div>
+							<div class="row">
+							 <div class="column">
+								 <img src="images/rsi-coindesk.svg" alt="Snow" style="width:100%">
+							 </div>
+							 <div class="column">
+								 <img src="images/rsi-nomics.svg" alt="Forest" style="width:100%">
+							 </div>
+						 </div>
+						 <div class="row">
+							<div class="column">
+								<img src="images/ichimoku.svg" alt="Snow" style="width:60%">
+							</div>
+						</div>
+								<footer class="major">
+									<p>See more at</p>
+									<ul class="actions special">
+										<li><a href="https://www.tradingview.com/" class="button" target=”_blank”>TradingView</a></li>
+										<li><a href="https://www.coindesk.com/price/bitcoin" class="button" target=”_blank”>Coindesk</a></li>
+										<li><a href="https://nomics.com/" class="button" target=”_blank”>Nomics</a></li>
+									</ul>
+								</footer>
+							</section>
+
+						<!-- Score Table -->
+							<section id="score" class="main special">
+								<header class="major">
+									<h2>Score Table</h2>
+									<p>We combine Moving Average Convergence Divergence (MACD),
+									Bollinger Band, Ichimoku Kinko Hyo (Ichimoku Cloud),
+									Relative Strength Index (RSI) indicators into scale of -100 (most likely signal for buying) to
+									100 (most likely signal for selling). The detail for this scale can be seen below.</p>
+
+
+								<div class="table">
+							    <table cellpadding="0" cellspacing="0" border="0">
+							      <tbody>
+											<tr>
+												<th style="text-align:center">Score Range</th>
+												<th style="text-align:center">-100 to -70</th>
+												<th style="text-align:center">-70 to -40</th>
+												<th style="text-align:center">-40 to 40</th>
+												<th style="text-align:center">40 to 70</th>
+												<th style="text-align:center">70 to 100</th>
+											</tr>
+							        <tr>
+												<th style="text-align:center">Label</th>
+												<td>Definitely should buy</td>
+												<td>Maybe should buy</td>
+												<td>Hold</td>
+												<td>Maybe should sell</td>
+												<td>Definitely should sell</td>
+							        </tr>
+									</tbody>
+									</table>
+								</div>
+
+								</header>
+							</section>
+
+						<!-- Get Started -->
+							<section id="cta" class="main special">
+								<header class="major">
+									<h2>Learn More</h2>
+									<p>For more detail about source code, README, please visit our repository.
+									Also check out Pandemic Central for COVID-19 projections, utilizing machine learning
+									on mobility, epidemiology, and sociology data!(●'◡'●)</p>
+								</header>
+								<footer class="major">
+									<ul class="actions special">
+										<li><a href="https://github.com/caominhduy/bitcoin-indicated" target=”_blank” class="button primary">Source Code</a></li>
+										<li><a href="https://itsonit.com" target=”_blank” class="button">COVID-19 Machine Learning Projections</a></li>
+									</ul>
+								</footer>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; 2020 Duy Cao. <a href="https://bitcoinindicated.com">Bitcoin Indicated ₿</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
