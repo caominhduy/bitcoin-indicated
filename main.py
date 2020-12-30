@@ -11,6 +11,8 @@ __version__ = '1.0'
 def main(args):
     if args.all:
         output.indicator('all')
+    if args.web:
+        output.indicator('web')
     if args.bollinger:
         output.indicator('bollinger')
     if args.MACD:
@@ -28,5 +30,6 @@ if __name__ == '__main__':
     parser.add_argument('--ichimoku', action='store_true', help='Use Ichimoku Cloud only')
     parser.add_argument('--MACD', action='store_true', help='Use Moving Average Convergent/Divergence only')
     parser.add_argument('--RSI', action='store_true', help='Use Relative Strength Index')
+    parser.add_argument('-w', '--web', action='store_true', help=argparse.SUPPRESS)
     args = parser.parse_args()
     main(args)

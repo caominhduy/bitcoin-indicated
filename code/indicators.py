@@ -12,13 +12,14 @@ __url__ = 'https://github.com/caominhduy/bitcoin-indicated'
 __version__ = '1.0'
 
 
-def macd(df, columns):
+def macd(df, columns, auto=False):
 
     """
     Moving Average Convergence / Divergence (MACD) is:
         - a strong trend-confirming indicator
         - more useful for confirming trend, not predicting trend
         - prone to false positives
+        - auto = True/False running script only, do not show figures
     Inputs:
         - df = Pandas DataFrame
         - columns = Column names that contain BTC-USD values
@@ -62,7 +63,8 @@ def macd(df, columns):
         plt.title(f'Data source: {c}', fontsize=10)
         plt.savefig(f'docs/images/macd-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
         plt.savefig(f'docs/images/macd-{c}.svg')
-        plt.show()
+        if auto == False:
+            plt.show()
 
     if macd[len(macd)-1] > 0:
         uptrend = 1
@@ -76,7 +78,7 @@ def macd(df, columns):
     return uptrend, df[df['date']==cross]['macd_crossover'].iloc[0] # uptrend and MACD-Signal crossover
 
 
-def rsi(df, columns, n): # n is period
+def rsi(df, columns, n, auto=False): # n is period
 
     """
     Relative Strength Index (RSI) is useful for
@@ -86,6 +88,7 @@ def rsi(df, columns, n): # n is period
         - df = Pandas DataFrame
         - columns = Column names that contain BTC-USD values
         - n = period (14 by default)
+        - auto = True/False running script only, do not show figures
     Outputs: (overbought, latest_rsi)
         - overbought = 1 (overbought), -1 (oversold), 0 (unclear)
         - latest_rsi = the most recent index
@@ -115,7 +118,8 @@ def rsi(df, columns, n): # n is period
         plt.title(f'Data source: {c}', fontsize=10)
         plt.savefig(f'docs/images/rsi-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
         plt.savefig(f'docs/images/rsi-{c}.svg')
-        plt.show()
+        if auto == False:
+            plt.show()
 
         if 'rsi' not in df.columns.values.tolist():
             df['rsi'] = rsi
@@ -132,7 +136,7 @@ def rsi(df, columns, n): # n is period
 
     return overbought, latest_rsi
 
-def bollinger_band(df, columns, n, mul):
+def bollinger_band(df, columns, n, mul, auto=False):
 
     """
     Relative Strength Index (RSI) is useful for
@@ -143,6 +147,7 @@ def bollinger_band(df, columns, n, mul):
         - columns = Column names that contain BTC-USD values
         - n = period (20 by default)
         - mul = number of standard deviation (2 by default)
+        - auto = True/False running script only, do not show figures
     Outputs: (bounce, squeeze)
         - bounce = 1 (bouncing up), -1 (bouncing down), 0 (unclear)
         - squeeze = 1 (contracting), -1 (widening), 0 (unclear)
@@ -165,7 +170,8 @@ def bollinger_band(df, columns, n, mul):
         plt.title(f'Data source: {c}', fontsize=10)
         plt.savefig(f'docs/images/bollinger-{c}.jpg', dpi=300, pil_kwargs={'quality': 95})
         plt.savefig(f'docs/images/bollinger-{c}.svg')
-        plt.show()
+        if auto == False:
+            plt.show()
 
         if 'upper' not in df.columns.values.tolist() and 'lower' not in df.columns.values.tolist():
             df['upper'] = upper
@@ -195,7 +201,7 @@ def bollinger_band(df, columns, n, mul):
 
     return bounce, squeeze
 
-def ichimoku_cloud(df, columns, n_1, n_2, n_3, n_4):
+def ichimoku_cloud(df, columns, n_1, n_2, n_3, n_4, auto=False):
 
     """
     Ichimoku Kinko Hyo (aka Ichimoku Cloud)
@@ -208,6 +214,7 @@ def ichimoku_cloud(df, columns, n_1, n_2, n_3, n_4):
         - n_2 = Kijun period (26 by default)
         - n_3 = Senkou period (52 by default)
         - n_4 = Chikou period (26 by default)
+        - auto = True/False running script only, do not show figures
 
     Outputs:
         - Supporting, Resistant price(s)
@@ -251,7 +258,8 @@ def ichimoku_cloud(df, columns, n_1, n_2, n_3, n_4):
     plt.title(f'Data source: {columns}', fontsize=10)
     plt.savefig(f'docs/images/ichimoku.jpg', dpi=300, pil_kwargs={'quality': 95})
     plt.savefig(f'docs/images/ichimoku.svg')
-    plt.show()
+    if auto == False:
+        plt.show()
 
     support = []
     resistance = []

@@ -103,6 +103,7 @@ def web(score, date):
 
 def indicator(option):
     score = 0
+
     if option == 'all':
         max_score = 1/9
         data = fetch.live_data()
@@ -113,6 +114,23 @@ def indicator(option):
         bounce, squeeze = indicators.bollinger_band(data, ['coindesk', 'nomics'], 20, 2)
         score += process_bollinger(bounce, squeeze, max_score)
         output = indicators.ichimoku_cloud(data, ['coindesk', 'nomics'], 9, 26, 52, 26)
+        score += process_ichimoku(output, max_score)
+        score = round(score*100, 1)
+        if not os.path.exists('docs/assets/data/score.csv'):
+            pd.DataFrame({'date': [data['date'].iloc[-1]], 'current_score': [score], 'past_score': [score], 'quote': [process_score(score)]}).to_csv('docs/assets/data/score.csv', index=False)
+        print(score, data['date'].iloc[-1])
+        web(score, data['date'].iloc[-1])
+
+    if option == 'web':
+        max_score = 1/9
+        data = fetch.live_data()
+        uptrend, crossover = indicators.macd(data, ['coindesk', 'nomics'], auto=True)
+        score += process_macd(uptrend, crossover, max_score)
+        overbought, rsi = indicators.rsi(data, ['coindesk', 'nomics'], 14, auto=True)
+        score += process_rsi(overbought, rsi, max_score)
+        bounce, squeeze = indicators.bollinger_band(data, ['coindesk', 'nomics'], 20, 2, auto=True)
+        score += process_bollinger(bounce, squeeze, max_score)
+        output = indicators.ichimoku_cloud(data, ['coindesk', 'nomics'], 9, 26, 52, 26, auto=True)
         score += process_ichimoku(output, max_score)
         score = round(score*100, 1)
         if not os.path.exists('docs/assets/data/score.csv'):
