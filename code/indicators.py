@@ -65,6 +65,8 @@ def macd(df, columns, auto=False):
         plt.savefig(f'docs/images/macd-{c}.svg')
         if auto == False:
             plt.show()
+        else:
+            plt.clf()
 
     if macd[len(macd)-1] > 0:
         uptrend = 1
@@ -120,6 +122,8 @@ def rsi(df, columns, n, auto=False): # n is period
         plt.savefig(f'docs/images/rsi-{c}.svg')
         if auto == False:
             plt.show()
+        else:
+            plt.clf()
 
         if 'rsi' not in df.columns.values.tolist():
             df['rsi'] = rsi
@@ -172,6 +176,8 @@ def bollinger_band(df, columns, n, mul, auto=False):
         plt.savefig(f'docs/images/bollinger-{c}.svg')
         if auto == False:
             plt.show()
+        else:
+            plt.clf()
 
         if 'upper' not in df.columns.values.tolist() and 'lower' not in df.columns.values.tolist():
             df['upper'] = upper
@@ -260,6 +266,8 @@ def ichimoku_cloud(df, columns, n_1, n_2, n_3, n_4, auto=False):
     plt.savefig(f'docs/images/ichimoku.svg')
     if auto == False:
         plt.show()
+    else:
+        plt.clf()
 
     support = []
     resistance = []
