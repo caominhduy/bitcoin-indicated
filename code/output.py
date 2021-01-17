@@ -30,7 +30,7 @@ def process_rsi(overbought, rsi, max_score):
     if overbought == 1:
         moment = 'OVERBOUGHT'
         print(f'RSI indicates: Bitcoin is {moment}')
-    elif uptrend == -1:
+    elif overbought == -1:
         trend = 'OVERSOLD'
         print(f'RSI indicates: Bitcoin is {moment}')
     else:
