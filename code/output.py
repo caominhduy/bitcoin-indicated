@@ -56,12 +56,16 @@ def process_bollinger(bounce, squeeze, max_score):
         breakout = 'UNEXPECTED'
     print(f'Bollinger Band indicates: probably bouncing {bouncing}, breakout is {breakout}')
 
+    # if price is predicted bouncing up and breakout is expected,
+    # there is strong BUY signal as price will cross below support line
     if squeeze == 1 and bounce == 1:
-        return bounce*max_score + -1*breakout*max_score
+        return -bounce*2*max_score
+    # if price is predicted bouncing down and breakout is expected,
+    # there is strong SELL signal as price will cross below support line
     elif squeeze == 1 and bounce == -1:
-        return bounce*max_score + breakout*max_score
+        return -bounce*2*max_score
     else:
-        return bounce*max_score*-1
+        return -bounce*max_score
 
 def process_ichimoku(inputs, max_score):
     support, resistance, kijun_trend, chikou_trend = inputs
